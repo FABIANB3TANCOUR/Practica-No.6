@@ -74,16 +74,21 @@ Bellman sirve para procesar esos datos y asignarles un puntaje de "calidad" a ca
 Durante el desarrollo, hubo ciertas dficultades técnicas y teóricas:
 
 1. Explosión de Estados: Conecta 4 tiene billones de estados posibles. Aprenderlos todos con Q-Learning básico es imposible, por lo que el agente solo es "sabio" en las situaciones que ha visto muchas veces.
+   
 2. Manejo de la Interfaz Gráfica: matplotlib tiende a congelarse si no se gestionan correctamente los eventos de la ventana (flush_events) o si se detiene el código con un input() de consola.
-3. Error de Lista Vacía: El agente intentaba buscar el mejor movimiento en tableros ya llenos (empate), lo que causaba un fallo en la función max(). Se solucionó con validaciones preventivas.
+   
+3. Error de Lista Vacía: El agente intentaba buscar el mejor movimiento en tableros ya llenos (empate), lo que causaba un fallo en la función max(). Se solucionó con validaciones preventivas
+   
 4. Asignación de Recompensas (Credit Assignment): Determinar que un movimiento hecho al principio del juego fue el causante de perder 20 turnos después es el mayor reto del aprendizaje por refuerzo.
 
 ## Análisis de Parámetros
 0.01,"El agente es muy ""rígido"". Si encuentra una estrategia que funciona una vez, deja de buscar otras mejores."
+
 0.50,"Aprende mucho porque intenta muchas cosas locas, pero su tasa de victorias durante el entrenamiento es baja porque comete muchos errores a propósito."
+
 1.0,"Caos total. Es puro azar. No sirve para jugar en serio, solo para llenar la memoria de experiencias aleatorias."
 
-## ## Conclusión Final
+## Conclusión Final
 El agente de Q-Learning logró desarrollar una estrategia defensiva y ofensiva básica tras 10,000 partidas. A diferencia de un algoritmo tradicional basado en reglas fijas, este agente 'entiende' el valor de las posiciones a través de la experiencia acumulada. Se observa que el rendimiento mejora drásticamente cuando se equilibra el factor de exploración, permitiendo que la IA descubra que el control de las columnas centrales aumenta sus probabilidades de éxito
 
 
